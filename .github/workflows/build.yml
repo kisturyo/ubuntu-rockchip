@@ -118,6 +118,7 @@ jobs:
           - armsom-sige5
           - armsom-sige7
           - armsom-w3
+          - cyber3588-aib
           - indiedroid-nova
           - lubancat-4
           - mixtile-blade3
