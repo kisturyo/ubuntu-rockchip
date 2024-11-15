@@ -66,12 +66,8 @@ jobs:
     name: Build rootfs 
     strategy:
         matrix:
-          flavor:
-            - desktop
-            - server
-          suite:
-            - jammy
-            - noble
+          flavor: ['${{ github.event.inputs.flavor }}']
+          suite: ['${{ github.event.inputs.suite }}']
     steps:
       - name: Get more disk space
         uses: jlumbroso/free-disk-space@main
@@ -117,9 +113,7 @@ jobs:
     name: Build kernel 
     strategy:
         matrix:
-          suite:
-            - jammy
-            - noble
+          suite: ['${{ github.event.inputs.suite }}']
     steps:
       - name: Get more disk space
         uses: jlumbroso/free-disk-space@main
