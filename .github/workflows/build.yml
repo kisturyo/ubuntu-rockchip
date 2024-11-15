@@ -2,6 +2,61 @@ name: Build
 
 on:
   workflow_dispatch:
+    inputs:
+      board:
+        description: 'Board to build'
+        required: true
+        default: 'cyber3588-aib'
+        type: choice
+        options:
+          - aio-3588l
+          - armsom-aim7
+          - armsom-sige5
+          - armsom-sige7
+          - armsom-w3
+          - cyber3588-aib
+          - indiedroid-nova
+          - lubancat-4
+          - mixtile-blade3
+          - mixtile-core3588e
+          - nanopc-t6
+          - nanopi-r6c
+          - nanopi-r6s
+          - orangepi-3b
+          - orangepi-5
+          - orangepi-5-max
+          - orangepi-5-plus
+          - orangepi-5-pro
+          - orangepi-5b
+          - orangepi-cm5
+          - radxa-cm5-io
+          - radxa-cm5-rpi-cm4-io
+          - radxa-nx5-io
+          - radxa-zero3
+          - roc-rk3588s-pc
+          - rock-5-itx
+          - rock-5a
+          - rock-5b
+          - rock-5b-plus
+          - rock-5c
+          - rock-5d
+          - turing-rk1
+      suite:
+        description: 'Ubuntu version'
+        required: true
+        default: 'noble'
+        type: choice
+        options:
+          - jammy
+          - noble
+      flavor:
+        description: 'Flavor (desktop or server)'
+        required: true
+        default: 'desktop'
+        type: choice
+        options:
+          - desktop
+          - server
 
 run-name: Build
 
@@ -108,49 +163,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: [rootfs, kernel]
-    name: Build image 
-
+    name: Build image
+    
     strategy:
       matrix:
-        board:
-          - aio-3588l
-          - armsom-aim7
-          - armsom-sige5
-          - armsom-sige7
-          - armsom-w3
-          - cyber3588-aib
-          - indiedroid-nova
-          - lubancat-4
-          - mixtile-blade3
-          - mixtile-core3588e
-          - nanopc-t6
-          - nanopi-r6c
-          - nanopi-r6s
-          - orangepi-3b
-          - orangepi-5
-          - orangepi-5-max
-          - orangepi-5-plus
-          - orangepi-5-pro
-          - orangepi-5b
-          - orangepi-cm5
-          - radxa-cm5-io
-          - radxa-cm5-rpi-cm4-io
-          - radxa-nx5-io
-          - radxa-zero3
-          - roc-rk3588s-pc
-          - rock-5-itx
-          - rock-5a
-          - rock-5b
-          - rock-5b-plus
-          - rock-5c
-          - rock-5d
-          - turing-rk1
-        flavor:
-          - desktop
-          - server
-        suite:
-          - jammy
-          - noble
+        board: ['${{ github.event.inputs.board }}']
+        flavor: ['${{ github.event.inputs.flavor }}']
+        suite: ['${{ github.event.inputs.suite }}']
         exclude:
           - board: armsom-sige5
             suite: jammy
