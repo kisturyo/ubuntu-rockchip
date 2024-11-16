@@ -226,7 +226,8 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}  
           body: |  
             ### Ubuntu Image Information  
-            - Version: jammy_ noble   
+            - jammy:kernel_5.10
+            - noble:kernel_6.1   
             - Suite: server_ desktop 
             ### Ubuntu Image Verification  
             - sha256sum   
