@@ -214,11 +214,24 @@ jobs:
         run: sudo ./build.sh --board=${{ matrix.board }} --suite=${{ matrix.suite }} --flavor=${{ matrix.flavor }}
 
       - name: Upload
-        uses: actions/upload-artifact@v4.3.3
-        with:
-          name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64-${{ matrix.board }}
-          path: ./images/ubuntu-*-preinstalled-${{ matrix.flavor }}-arm64-${{ matrix.board }}.*
-          if-no-files-found: error
+        if: success() 
+        uses: ncipollo/release-action@main
+        with:  
+          tag: "Ubuntu_v2.4.2"  
+          name: "Ubuntu_v2.4.2"  
+          artifacts: "images/ubuntu-*-preinstalled-*-arm64-${{ matrix.board }}.*"  
+          allowUpdates: true 
+          removeArtifacts: false 
+          replacesArtifacts: true 
+          token: ${{ secrets.GITHUB_TOKEN }}  
+          body: |  
+            ### Ubuntu Image Information  
+            - Version: jammy_ noble   
+            - Suite: server_ desktop 
+            ### Ubuntu Image Verification  
+            - sha256sum   
+          draft: false  
+          prerelease: false  
 
       - name: Clean cache
         shell: bash
