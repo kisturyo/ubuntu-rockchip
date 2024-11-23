@@ -217,8 +217,8 @@ jobs:
         if: success() 
         uses: ncipollo/release-action@main
         with:  
-          tag: "Ubuntu_v2.4.2"  
-          name: "Ubuntu_v2.4.2"  
+          tag: "Ubuntu_v2.4.5"  
+          name: "Ubuntu_v2.4.5"  
           artifacts: "images/ubuntu-*-preinstalled-*-arm64-${{ matrix.board }}.*"  
           allowUpdates: true 
           removeArtifacts: false 
@@ -229,8 +229,8 @@ jobs:
             - jammy:kernel_5.10
             - noble:kernel_6.1   
             - Suite: server_ desktop 
-            ### Ubuntu Image Verification  
-            - sha256sum   
+            ### Update Notes
+            - Update: Modify the model name display rule in cpuinfo.c   
           draft: false  
           prerelease: false  
 
