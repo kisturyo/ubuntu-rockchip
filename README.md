@@ -1,6 +1,6 @@
 ## Overview
 
-[Latest GitHub ReleaseUbuntu_v2.4.5](https://github.com/Lemon1151/ubuntu-rockchip/releases/latest)
+[Latest GitHub Release Ubuntu_v2.4.5](https://github.com/Lemon1151/ubuntu-rockchip/releases/latest)
 
 Add support for the Cyber3588aib board.
 
