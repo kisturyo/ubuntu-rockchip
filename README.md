@@ -1,6 +1,6 @@
 ## Overview
 
-[![Latest GitHub Release](https://img.shields.io/github/release/Joshua-Riek/ubuntu-rockchip.svg?label=Latest%20Release)](https://github.com/Lemon1151/ubuntu-rockchip/releases/latest)
+[![Latest GitHub ReleaseUbuntu_v2.4.5](https://github.com/Lemon1151/ubuntu-rockchip/releases/latest)
 [![Total GitHub Downloads](https://img.shields.io/github/downloads/Joshua-Riek/ubuntu-rockchip/total.svg?&color=E95420&label=Total%20Downloads)](https://github.com/Joshua-Riek/ubuntu-rockchip/releases)
 [![Nightly GitHub Build](https://github.com/Joshua-Riek/ubuntu-rockchip/actions/workflows/nightly.yml/badge.svg)](https://github.com/Joshua-Riek/ubuntu-rockchip/actions/workflows/nightly.yml)
 
