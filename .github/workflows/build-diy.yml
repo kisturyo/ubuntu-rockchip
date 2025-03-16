@@ -62,7 +62,7 @@ run-name: Build
 
 jobs:
   rootfs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Build rootfs 
     strategy:
         matrix:
@@ -104,12 +104,12 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4.3.3
         with:
-            name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64-rootfs
-            path: ./build/ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64.rootfs.tar.xz
+            name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-lts-${{ matrix.flavor }}-arm64-rootfs
+            path: ./build/ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-lts-${{ matrix.flavor }}-arm64.rootfs.tar.xz
             if-no-files-found: error
 
   kernel:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Build kernel 
     strategy:
         matrix:
@@ -155,7 +155,7 @@ jobs:
             if-no-files-found: error
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [rootfs, kernel]
     name: Build image
     
@@ -200,7 +200,7 @@ jobs:
       - name: Checkout rootfs
         uses: actions/download-artifact@v4.1.2
         with:
-            name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-preinstalled-${{ matrix.flavor }}-arm64-rootfs
+            name: ubuntu-${{ matrix.suite == 'jammy' && '22.04' || matrix.suite == 'noble' && '24.04' }}-lts-${{ matrix.flavor }}-arm64-rootfs
             path: ./build/
 
       - name: Checkout kernel
@@ -217,9 +217,9 @@ jobs:
         if: success() 
         uses: ncipollo/release-action@main
         with:  
-          tag: "Ubuntu_v2.4.5"  
-          name: "Ubuntu_v2.4.5"  
-          artifacts: "images/ubuntu-*-preinstalled-*-arm64-${{ matrix.board }}.*"  
+          tag: "Ubuntu_v2.4.6"  
+          name: "Ubuntu_v2.4.6"  
+          artifacts: "images/ubuntu-*-lts-*-arm64-${{ matrix.board }}.*"  
           allowUpdates: true 
           removeArtifacts: false 
           replacesArtifacts: true 
@@ -228,7 +228,8 @@ jobs:
             ### Ubuntu Image Information  
             - jammy:kernel_5.10
             - noble:kernel_6.1   
-            - Suite: server_ desktop 
+            - Suite: server_ desktop
+            - The predefined user is ubuntu and the password is ubuntu
             ### Update Notes
             - Update: Modify the model name display rule in cpuinfo.c   
           draft: false  
