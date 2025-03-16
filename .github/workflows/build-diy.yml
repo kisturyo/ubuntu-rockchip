@@ -213,12 +213,19 @@ jobs:
         shell: bash
         run: sudo ./build.sh --board=${{ matrix.board }} --suite=${{ matrix.suite }} --flavor=${{ matrix.flavor }}
 
+      - name: Generate tag and name based on build year and month
+        id: generate_tag
+        run: |
+          # 使用当前年份和月份生成版本号
+          echo "::set-output name=build_tag::$(date +Ubuntu-%Y-%m)"
+          echo "::set-output name=build_name::$(date +Ubuntu-%Y-%m)"
+
       - name: Upload
         if: success() 
         uses: ncipollo/release-action@main
         with:  
-          tag: "Ubuntu_v2.4.6"  
-          name: "Ubuntu_v2.4.6"  
+          tag: "${{ steps.generate_tag.outputs.build_tag }}"  
+          name: "${{ steps.generate_tag.outputs.build_name }}"  
           artifacts: "images/ubuntu-*-lts-*-arm64-${{ matrix.board }}.*"  
           allowUpdates: true 
           removeArtifacts: false 
@@ -229,9 +236,7 @@ jobs:
             - jammy:kernel_5.10
             - noble:kernel_6.1   
             - Suite: server_ desktop
-            - The predefined user is ubuntu and the password is ubuntu
-            ### Update Notes
-            - Update: Modify the model name display rule in cpuinfo.c   
+            - The predefined user is ubuntu and the password is ubuntu   
           draft: false  
           prerelease: false  
 
