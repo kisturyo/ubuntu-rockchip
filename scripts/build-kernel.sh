@@ -34,4 +34,4 @@ export CC=aarch64-linux-gnu-gcc
 export LANG=C
 
 # Compile the kernel into a deb package
-fakeroot debian/rules clean binary-headers binary-rockchip do_mainline_build=true
+fakeroot debian/rules clean binary-headers binary-rockchip do_mainline_build=true v=1
