@@ -49,6 +49,7 @@ on:
         options:
           - jammy
           - noble
+          - plucky
       flavor:
         description: 'Flavor (desktop or server)'
         required: true
