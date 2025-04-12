@@ -233,7 +233,8 @@ jobs:
           body: |  
             ### Ubuntu Image Information  
             - jammy:kernel_5.10
-            - noble:kernel_6.1   
+            - noble:kernel_6.1
+            - plucky:kernel_6.12
             - Suite: server_ desktop
             - The predefined user is ubuntu and the password is ubuntu   
           draft: false  
