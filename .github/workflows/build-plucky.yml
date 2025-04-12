@@ -44,7 +44,7 @@ on:
       suite:
         description: 'Ubuntu version'
         required: true
-        default: 'noble'
+        default: 'plucky'
         type: choice
         options:
           - plucky
