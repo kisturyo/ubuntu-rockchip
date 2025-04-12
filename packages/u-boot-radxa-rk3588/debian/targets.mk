@@ -36,6 +36,11 @@ rock-5-itx-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
 rock-5-itx-rk3588_bl31 := rk3588_bl31_v1.45.elf
 rock-5-itx-rk3588_pkg := rock-5-itx
 
+u-boot-rockchip_platforms += rock-5t-rk3588
+rock-5t-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
+rock-5t-rk3588_bl31 := rk3588_bl31_v1.45.elf
+rock-5t-rk3588_pkg := rock-5t
+
 u-boot-rockchip_platforms += radxa-cm5-io-rk3588s
 radxa-cm5-io-rk3588s_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
 radxa-cm5-io-rk3588s_bl31 := rk3588_bl31_v1.45.elf
