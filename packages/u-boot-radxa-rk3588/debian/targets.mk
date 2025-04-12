@@ -149,3 +149,8 @@ u-boot-rockchip_platforms += smart-am60-rk3588
 smart-am60-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
 smart-am60-rk3588_bl31 := rk3588_bl31_v1.45.elf
 smart-am60-rk3588_pkg := smart-am60
+
+u-boot-rockchip_platforms += som3588-cat-rk3588
+som3588-cat-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
+som3588-cat-rk3588_bl31 := rk3588_bl31_v1.45.elf
+som3588-cat-rk3588_pkg := som3588-cat
