@@ -1,4 +1,4 @@
-name: Build oracular
+name: Build Oracular
 
 on:
   workflow_dispatch:
