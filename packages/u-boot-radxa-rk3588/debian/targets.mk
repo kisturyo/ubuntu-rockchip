@@ -144,3 +144,8 @@ u-boot-rockchip_platforms += cyber3588-aib-rk3588
 cyber3588-aib-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
 cyber3588-aib-rk3588_bl31 := rk3588_bl31_v1.45.elf
 cyber3588-aib-rk3588_pkg := cyber3588-aib
+
+u-boot-rockchip_platforms += smart-am60-rk3588
+smart-am60-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
+smart-am60-rk3588_bl31 := rk3588_bl31_v1.45.elf
+smart-am60-rk3588_pkg := smart-am60
