@@ -142,5 +142,18 @@ lb build
 set -eE 
 
 # Tar the entire rootfs
+echo "Listing chroot/ directory before tarring:"
+ls -l chroot/
+
 (cd chroot/ &&  tar -p -c --sort=name --xattrs ./*) | xz -3 -T0 > "ubuntu-${RELASE_VERSION}-${SUITES}-${FLAVOR}-arm64.rootfs.tar.xz"
+
+# 检查当前目录下的文件
+echo "Listing current directory after tarring:"
+ls -l
+
+#将rootfs移动到上级目录
 mv "ubuntu-${RELASE_VERSION}-${SUITES}-${FLAVOR}-arm64.rootfs.tar.xz" ../
+
+# 再次检查文件是否存在于目标目录
+echo "Listing parent directory after moving the file:"
+ls -l ..
