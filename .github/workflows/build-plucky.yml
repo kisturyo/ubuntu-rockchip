@@ -199,7 +199,7 @@ jobs:
       - name: Checkout rootfs
         uses: actions/download-artifact@v4.1.2
         with:
-            name: ubuntu-ubuntu-${{ matrix.suite == 'plucky' && '25.04' }}-${{ matrix.suite }}-${{ matrix.flavor }}-arm64-rootfs
+            name: ubuntu-${{ matrix.suite == 'plucky' && '25.04' }}-${{ matrix.suite }}-${{ matrix.flavor }}-arm64-rootfs
             path: ./build/
 
       - name: Checkout kernel
