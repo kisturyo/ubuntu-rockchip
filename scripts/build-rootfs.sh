@@ -27,7 +27,7 @@ fi
 # shellcheck source=/dev/null
 source "../config/flavors/${FLAVOR}.sh"
 
-if [[ -f ubuntu-${RELASE_VERSION}-${SUITES}-${FLAVOR}-arm64.rootfs.tar.xz ]]; then
+if [[ -f ubuntu-${RELASE_VERSION}-${SUITE}-${FLAVOR}-arm64.rootfs.tar.xz ]]; then
     exit 0
 fi
 
@@ -145,14 +145,14 @@ set -eE
 echo "Listing chroot/ directory before tarring:"
 ls -l chroot/
 
-(cd chroot/ &&  tar -p -c --sort=name --xattrs ./*) | xz -3 -T0 > "ubuntu-${RELASE_VERSION}-${SUITES}-${FLAVOR}-arm64.rootfs.tar.xz"
+(cd chroot/ &&  tar -p -c --sort=name --xattrs ./*) | xz -3 -T0 > "ubuntu-${RELASE_VERSION}-${SUITE}-${FLAVOR}-arm64.rootfs.tar.xz"
 
 # 检查当前目录下的文件
 echo "Listing current directory after tarring:"
 ls -l
 
 #将rootfs移动到上级目录
-mv "ubuntu-${RELASE_VERSION}-${SUITES}-${FLAVOR}-arm64.rootfs.tar.xz" ../
+mv "ubuntu-${RELASE_VERSION}-${SUITE}-${FLAVOR}-arm64.rootfs.tar.xz" ../
 
 # 再次检查文件是否存在于目标目录
 echo "Listing parent directory after moving the file:"
