@@ -40,6 +40,9 @@ on:
           - rock-5b-plus
           - rock-5c
           - rock-5d
+          - rock-5t
+          - smart-am60
+          - som3588-cat
           - turing-rk1
       suite:
         description: 'Ubuntu version'
