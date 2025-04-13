@@ -1,5 +1,6 @@
 diff --git a/arch/arm/dts/rk3588-smart-am60.dts b/arch/arm/dts/rk3588-smart-am60.dts
 new file mode 100644
+index 0000000..e7d19e4
 --- /dev/null
 +++ b/arch/arm/dts/rk3588-smart-am60.dts
 @@ -0,0 +1,125 @@
@@ -130,9 +131,10 @@ new file mode 100644
 +};
 diff --git a/configs/smart-am60-rk3588_defconfig b/configs/smart-am60-rk3588_defconfig
 new file mode 100644
+index 0000000..60e052b
 --- /dev/null
 +++ b/configs/smart-am60-rk3588_defconfig
-@@ -0,0 +1,212 @@
+@@ -0,0 +1,214 @@
 +CONFIG_ARM=y
 +CONFIG_ARM_CPU_SUSPEND=y
 +CONFIG_ARCH_ROCKCHIP=y
@@ -337,7 +339,9 @@ new file mode 100644
 +CONFIG_RSA_N_SIZE=0x200
 +CONFIG_RSA_E_SIZE=0x10
 +CONFIG_RSA_C_SIZE=0x20
++CONFIG_XBC=y
 +CONFIG_LZ4=y
++CONFIG_LZMA=y
 +CONFIG_ERRNO_STR=y
 +# CONFIG_EFI_LOADER is not set
 +CONFIG_AVB_LIBAVB=y
