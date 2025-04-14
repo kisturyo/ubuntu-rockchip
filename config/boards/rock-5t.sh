@@ -14,7 +14,7 @@ function config_image_hook__rock-5t() {
     local overlay="$2"
     local suite="$3"
 
-    if [ "${suite}" == "noble" ]; then
+    if [ "${suite}" == "jammy" ] || [ "${suite}" == "noble" ]; then
         # Install panfork
         chroot "${rootfs}" add-apt-repository -y ppa:jjriek/panfork-mesa
         chroot "${rootfs}" apt-get update
