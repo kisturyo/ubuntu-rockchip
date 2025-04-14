@@ -13,7 +13,7 @@ function config_image_hook__som3588-cat() {
     local rootfs="$1"
     local suite="$3"
 
-    if [ "${suite}" == "noble" ]; then
+    if [ "${suite}" == "jammy" ] || [ "${suite}" == "noble" ]; then
         # Install panfork
         chroot "${rootfs}" add-apt-repository -y ppa:jjriek/panfork-mesa
         chroot "${rootfs}" apt-get update
