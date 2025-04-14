@@ -9,11 +9,11 @@ export UBOOT_RULES_TARGET="smart-am60-rk3588"
 export COMPATIBLE_SUITES=("noble")
 export COMPATIBLE_FLAVORS=("server" "desktop")
 
-function config_image_hook__smart-60() {
+function config_image_hook__smart-am60() {
     local rootfs="$1"
     local suite="$3"
 
-    if [ "${suite}" == "noble" ]; then
+    if [ "${suite}" == "jammy" ] || [ "${suite}" == "noble" ]; then
         # Install panfork
         chroot "${rootfs}" add-apt-repository -y ppa:jjriek/panfork-mesa
         chroot "${rootfs}" apt-get update
