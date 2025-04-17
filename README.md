@@ -2,8 +2,8 @@
 
 [Latest GitHub Release Ubuntu](https://github.com/Lemon1151/ubuntu-rockchip/releases/latest)
 
-Upgrade the linux-kernel to version 6.1.115.
-Add support for the rock-5t som3588-cat smart-am60 board.
+Upgrade the linux-kernel to version 6.1.115.  
+Add support for the rock-5t som3588-cat smart-am60 board.  
 Add support for the Cyber3588aib board.  
 Ubuntu Rockchip is a community project porting Ubuntu to Rockchip hardware with the goal of providing a stable and fully functional environment.
 
