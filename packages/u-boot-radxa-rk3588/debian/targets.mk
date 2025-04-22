@@ -159,3 +159,8 @@ u-boot-rockchip_platforms += som3588-cat-rk3588
 som3588-cat-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
 som3588-cat-rk3588_bl31 := rk3588_bl31_v1.45.elf
 som3588-cat-rk3588_pkg := som3588-cat
+
+u-boot-rockchip_platforms += toybrick-d0-rk3588s
+toybrick-d0-rk3588s_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
+toybrick-d0-rk3588s_bl31 := rk3588_bl31_v1.45.elf
+toybrick-d0-rk3588s_pkg := toybrick-d0
