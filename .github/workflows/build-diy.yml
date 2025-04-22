@@ -43,6 +43,7 @@ on:
           - rock-5t
           - smart-am60
           - som3588-cat
+          - toybrick-d0
           - turing-rk1
       suite:
         description: 'Ubuntu version'
