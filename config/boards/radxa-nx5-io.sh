@@ -14,14 +14,10 @@ function config_image_hook__radxa-nx-io() {
     local suite="$3"
 
     if [ "${suite}" == "jammy" ] || [ "${suite}" == "noble" ]; then
-        # Install panfork
-        chroot "${rootfs}" add-apt-repository -y ppa:jjriek/panfork-mesa
+        # Install panthor mesa
+        chroot "${rootfs}" add-apt-repository -y ppa:kisak/kisak-mesa
         chroot "${rootfs}" apt-get update
-        chroot "${rootfs}" apt-get -y install mali-g610-firmware
         chroot "${rootfs}" apt-get -y dist-upgrade
-
-        # Install libmali blobs alongside panfork
-        chroot "${rootfs}" apt-get -y install libmali-g610-x11
 
         # Install the rockchip camera engine
         chroot "${rootfs}" apt-get -y install camera-engine-rkaiq-rk3588
