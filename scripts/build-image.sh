@@ -192,6 +192,8 @@ if [[ $(type -t build_image_hook__"${BOARD}") == function ]]; then
     build_image_hook__"${BOARD}"
 fi 
 
+# Use panthor for mainline mesa
+echo 'U_BOOT_FDT_OVERLAYS="device-tree/rockchip/overlay/rockchip-rk3588-panthor-gpu.dtbo"' >> ${mount_point}/writable/etc/default/u-boot
 chroot ${mount_point}/writable/ u-boot-update
 
 sync --file-system
