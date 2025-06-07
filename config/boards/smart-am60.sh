@@ -11,6 +11,7 @@ export COMPATIBLE_FLAVORS=("server" "desktop")
 
 function config_image_hook__smart-am60() {
     local rootfs="$1"
+    local overlay="$2"
     local suite="$3"
 
     if [ "${suite}" == "jammy" ] || [ "${suite}" == "noble" ]; then
@@ -25,6 +26,9 @@ function config_image_hook__smart-am60() {
 
         # Install the rockchip camera engine
         # chroot "${rootfs}" apt-get -y install camera-engine-rkaiq-rk3588
+        
+        # Add Wifi & BT module
+        cp -r "${overlay}/firmware/ap6276p/"* "${rootfs}/usr/lib/firmware/ap6275p/"
     fi
 
     return 0
